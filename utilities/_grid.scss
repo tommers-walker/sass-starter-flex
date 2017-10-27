@@ -3,14 +3,6 @@ $gtr-half  : $gtr / 2;
 $cols      : 12;
 $max-width : rem(1440);
 
-@mixin container() {
-  max-width: $max-width;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: $gtr-half;
-  padding-right: $gtr-half;
-}
-
 @mixin flex-grid($direction: row, $align: flex-start, $justify: flex-start, $gutters: true) {
   display: flex;
   flex-wrap: wrap;
@@ -35,10 +27,6 @@ $max-width : rem(1440);
 
 @mixin flex-offset($columns) {
   margin-left: calc(#{percentage($columns / $cols)} + #{$gtr-half});
-}
-
-.container {
-  @include container;
 }
 
 .g-s-gtr {

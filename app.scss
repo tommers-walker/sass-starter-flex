@@ -8,13 +8,14 @@
 
 @import "base/base";
 
-@import "atoms/typography/font-face";
-@import "atoms/typography/typography";
-@import "atoms/typography/headings";
+@import "typography/font-face";
+@import "typography/typography";
+@import "typography/headings";
 
 @import "atoms/btn";
 
 @import "molecules/layout";
 
 @import "organisms/header";
+@import "organisms/container";
 @import "organisms/footer";
