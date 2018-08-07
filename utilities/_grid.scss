@@ -85,21 +85,23 @@
     }
   }
 
-  .offset-#{$size} {
-    @include media($mq) {
-      @for $i from 1 through 12 {
-        &-#{$i} {
-          @include flex-offset($i);
+  .grid {
+    .offset-#{$size} {
+      @include media($mq) {
+        @for $i from 1 through 12 {
+          &-#{$i} {
+            @include flex-offset($i);
+          }
         }
       }
     }
-  }
 
-  .offset-r-#{$size} {
-    @include media($mq) {
-      @for $i from 1 through 12 {
-        &-#{$i} {
-          @include flex-offset($i, $right: true);
+    .offset-r-#{$size} {
+      @include media($mq) {
+        @for $i from 1 through 12 {
+          &-#{$i} {
+            @include flex-offset($i, $right: true);
+          }
         }
       }
     }
