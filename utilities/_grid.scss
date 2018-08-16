@@ -8,11 +8,6 @@
   @if $gutters == true {
     margin-left: -$gtr-half;
     margin-right: -$gtr-half;
-
-    @include media($large-screen-up) {
-      margin-left: -$gtr;
-      margin-right: -$gtr;
-    }
   }
 }
 
@@ -20,11 +15,6 @@
   @if $gutters {
     width: calc(#{percentage($columns-span / $cols)} - #{$gtr});
     margin: $gtr-half;
-
-    @include media($large-screen-up) {
-      width: calc(#{percentage($columns-span / $cols)} - #{$gtr-dbl});
-      margin: $gtr;
-    }
   } @else {
     width: #{percentage($columns-span / $cols)};
   }
@@ -56,6 +46,7 @@
   &--j-s { justify-content: flex-start; }
   &--j-c { justify-content: center; }
   &--j-e { justify-content: flex-end; }
+  &--j-sb { justify-content: space-between; }
 }
 
 .col {
