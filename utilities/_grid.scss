@@ -30,18 +30,26 @@
   }
 }
 
-@mixin flex-offset($columns, $right: false) {
+@mixin flex-offset($columns, $gutters: true, $right: false) {
   @if $right {
-    margin-right: calc(#{percentage($columns / $cols)} + #{$gtr-half});
+    @if $gutters {
+      margin-right: calc(#{percentage($columns / $cols)} + #{$gtr-half});
 
-    @include media($large-screen-up) {
-      margin-right: calc(#{percentage($columns / $cols)} + #{$gtr});
+      @include media($large-screen-up) {
+        margin-right: calc(#{percentage($columns / $cols)} + #{$gtr});
+      }
+    } @else {
+      margin-right: percentage($columns / $cols);
     }
   } @else {
-    margin-left: calc(#{percentage($columns / $cols)} + #{$gtr-half});
+    @if $gutters {
+      margin-left: calc(#{percentage($columns / $cols)} + #{$gtr-half});
 
-    @include media($large-screen-up) {
-      margin-left: calc(#{percentage($columns / $cols)} + #{$gtr});
+      @include media($large-screen-up) {
+        margin-left: calc(#{percentage($columns / $cols)} + #{$gtr});
+      }
+    } @else {
+      margin-left: percentage($columns / $cols);
     }
   }
 }
@@ -110,6 +118,28 @@
         @for $i from 1 through 12 {
           &-#{$i} {
             @include flex-offset($i, $right: true);
+          }
+        }
+      }
+    }
+  }
+
+  .grid-no-gtr {
+    .offset-#{$size} {
+      @include media($mq) {
+        @for $i from 1 through 12 {
+          &-#{$i} {
+            @include flex-offset($i, $gutters: false);
+          }
+        }
+      }
+    }
+
+    .offset-r-#{$size} {
+      @include media($mq) {
+        @for $i from 1 through 12 {
+          &-#{$i} {
+            @include flex-offset($i, $gutters: false, $right: true);
           }
         }
       }
