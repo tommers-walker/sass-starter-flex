@@ -76,11 +76,11 @@
 }
 
 .col {
-  .grid & {
+  .grid > & {
     @include flex-span(12);
   }
 
-  .grid-no-gtr & {
+  .grid-no-gtr > & {
     @include flex-span(12, $gutters: false);
   }
 }
@@ -90,11 +90,11 @@
     @include media($mq) {
       @for $i from 1 through 12 {
         &-#{$i} {
-          .grid-no-gtr & {
+          .grid-no-gtr > & {
             @include flex-span($i, $gutters: false);
           }
 
-          .grid & {
+          .grid > & {
             @include flex-span($i);
           }
         }
@@ -102,7 +102,7 @@
     }
   }
 
-  .grid {
+  .grid > {
     .offset-#{$size} {
       @include media($mq) {
         @for $i from 1 through 12 {
@@ -124,7 +124,7 @@
     }
   }
 
-  .grid-no-gtr {
+  .grid-no-gtr > {
     .offset-#{$size} {
       @include media($mq) {
         @for $i from 1 through 12 {
